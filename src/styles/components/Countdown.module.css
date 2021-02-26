@@ -55,6 +55,14 @@
     transition: background-color 0.2s;
 }
 
+.inputLeft {
+    margin-bottom: 2rem;
+}
+
+.inputRight {
+    margin-left: 2rem;
+}
+
 .countdownButton:not(:disabled):hover {
     background: var(--blue-dark);
 }

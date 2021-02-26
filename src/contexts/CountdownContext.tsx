@@ -8,6 +8,7 @@ interface CountdownContextData {
     isActive: boolean;
     startCountdown: () => void;
     resetCountdown: () => void;
+    receiveTime: (number) => void;
 }
 
 interface CountdownProviderProps {
@@ -39,6 +40,10 @@ export function CountdownProvider({ children }: CountdownProviderProps) {
         setHasFinished(false);
     }
 
+    function receiveTime(timePomodoro: number) {
+        setTime(timePomodoro * 60);
+    }
+
     useEffect(() => {
         if(isActive && time > 0) {
             countdownTimeout = setTimeout(() => {
@@ -59,7 +64,7 @@ export function CountdownProvider({ children }: CountdownProviderProps) {
             isActive,
             startCountdown,
             resetCountdown,
-
+            receiveTime,
         }}>
             {children}
         </CountdownContext.Provider>
